@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab Three
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar *ngIf="!loggedIn" color="secondary">
+    <button ion-button clear> Not signed in</button>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="loggedIn" color="secondary">
+    <button ion-button icon-left clear small>
+      <ion-icon name="contact"></ion-icon>
+      {{loggedIn}} Logged In
+    </button>
+    <button ion-button outline small (click)="signout()">Sign Out</button>
+  </ion-toolbar>
+</ion-content>
