@@ -6,6 +6,8 @@ import * as firebase from 'firebase/app';
 
 import { Tab2Page } from './../tab2.page';
 
+import { UserService } from './../../user.service';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -21,7 +23,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private router:Router) { }
+    private router:Router,
+    private userService: UserService) { }
 
   ngOnInit() { }
 
@@ -38,8 +41,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   private regSuccess(res) {
-    alert('registration success');
-    this.afAuth.auth.signInWithEmailAndPassword(this.reg.email, this.reg.passWrd1)
+    this.userService.logOn(this.reg.email, this.reg.passWrd1)
       .then(res => this.router.navigate(['tabs/tab2/success']));
   }
 

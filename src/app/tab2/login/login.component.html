@@ -10,7 +10,15 @@
   <ion-toolbar>
     <ion-title>Sign into App</ion-title>
   </ion-toolbar>
-  <button ion-button color="secondary">Sign in</button>
+  <ion-item>
+    <ion-label>E-mail address</ion-label>
+    <ion-input type='email' [(ngModel)]='login.email' name='email'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type='password' [(ngModel)]='login.passWrd' name='passWrd'></ion-input>
+  </ion-item>
+  <button ion-button color="secondary" (click)="signOn()">Sign in</button>
   <p></p>
   <button color="danger" [routerLink]="['register']">Sign up</button>
 </ion-content>
